@@ -80,7 +80,7 @@
 
                 const resultData = await response.json();
                 document.getElementById('result').innerText = `The result is: ${resultData.result}`;
-                document.getElementById('error').innerText = ''; 
+                document.getElementById('error').innerText = '';
             } catch (error) {
                 document.getElementById('error').innerText = `Error: ${error.message}`;
                 document.getElementById('result').innerText = '';

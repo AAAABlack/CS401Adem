@@ -18,7 +18,7 @@ def divide(x, y):
 
 @app.route('/calculate', methods=['POST'])
 def calculate():
-    data = request.json
+    data = request.get_json()
     choice = data['choice']
     num1 = float(data['num1'])
     num2 = float(data['num2'])
@@ -34,7 +34,7 @@ def calculate():
     else:
         result = "Invalid Input"
 
-    return jsonify(result=result)
+    return jsonify({'result': result})
 
 if __name__ == '__main__':
     app.run(debug=True)
