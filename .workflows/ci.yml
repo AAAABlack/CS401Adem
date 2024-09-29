@@ -34,7 +34,15 @@ jobs:
 
       - name: Run code formatting check with black
         run: |
-          black --check .  # Check code formatting
+          black --check .
+            
+      - name: Run code formatting check with black
+        run: |
+          black --check .
+
+      - name: Run security scan with bandit
+        run: |
+          bandit -r .  
 
       - name: Run unit tests
         run: |
