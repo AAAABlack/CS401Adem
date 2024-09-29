@@ -1,4 +1,3 @@
-README File:
 Project Overview:
 This project is a simple calculator application that performs basic operations such as addition, subtraction, multiplication, and division. The application is containerized using Docker and follows a CI/CD setup to ensure quality and continuous deployment.
 
