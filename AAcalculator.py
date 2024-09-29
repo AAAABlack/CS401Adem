@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
@@ -16,15 +16,12 @@ def divide(x, y):
         return "Error! You can't divide by 0."
     return x / y
 
-@app.route('/')
-def home():
-    return render_template('index.html')
-
 @app.route('/calculate', methods=['POST'])
 def calculate():
-    choice = request.form['choice']
-    num1 = float(request.form['num1'])
-    num2 = float(request.form['num2'])
+    data = request.json
+    choice = data['choice']
+    num1 = float(data['num1'])
+    num2 = float(data['num2'])
 
     if choice == '1':
         result = add(num1, num2)
@@ -37,7 +34,7 @@ def calculate():
     else:
         result = "Invalid Input"
 
-    return render_template('index.html', result=result)
+    return jsonify(result=result)
 
 if __name__ == '__main__':
     app.run(debug=True)
