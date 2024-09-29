@@ -1,0 +1,15 @@
+CI/CD Setup Documentation:
+CI Pipeline:
+
+The CI pipeline is defined in the .github/workflows directory.
+The pipeline is triggered for any push or pull request event on the master branch.
+Continuous Deployment:
+
+Ensure that your application is always deployed to production upon successful testing and quality checks.
+This setup uses GitHub Actions to automate the entire process of testing, linting, security scanning, and deployment.
+Troubleshooting:
+
+Linting Errors: Ensure code follows PEP8 guidelines and try running flake8 locally before pushing.
+Formatting Issues: Run black . to auto-format the code.
+Security Alerts: If Bandit raises any alerts, check the code for vulnerabilities like insecure imports or hardcoded credentials.
+Test Failures: Make sure that all unit tests pass locally before pushing.

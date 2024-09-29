@@ -1,0 +1,21 @@
+Welcome to the my simple calculator app!
+
+Basic Operations:
+Add: Add two numbers together.
+Subtract: Subtract one number from another.
+Multiply: Multiply two numbers.
+Divide: Divide one number by another (Note: Division by zero is not allowed).
+How to Use the Calculator:
+Open the application in your web browser.
+You will be prompted to select an operation from the following:
+Add
+Subtract
+Multiply
+Divide
+Enter the two numbers you want to perform the operation on.
+Press the "Calculate" button.
+The result of the calculation will be displayed.
+Key Features:
+Simple and user-friendly interface.
+Provides immediate results.
+Handles basic arithmetic operations.
