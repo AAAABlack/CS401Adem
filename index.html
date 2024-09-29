@@ -25,6 +25,9 @@
             margin-top: 10px;
             font-weight: bold;
         }
+        .error {
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -50,27 +53,38 @@
         </form>
 
         <div id="result" class="result"></div>
+        <div id="error" class="error"></div>
     </div>
 
     <script>
         document.getElementById('calc-form').onsubmit = async function(event) {
-            event.preventDefault(); // Prevent form submission
+            event.preventDefault();
 
             const choice = document.getElementById('choice').value;
             const num1 = document.getElementById('num1').value;
             const num2 = document.getElementById('num2').value;
 
-            // Make a POST request to your Python backend
-            const response = await fetch('http://localhost:5000/calculate', { // Adjust the URL if needed
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ choice, num1, num2 }),
-            });
+            try {
+                // Make a POST request to your Python backend
+                const response = await fetch('http://localhost:5000/calculate', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ choice, num1, num2 }),
+                });
 
-            const resultData = await response.json();
-            document.getElementById('result').innerText = `The result is: ${resultData.result}`;
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+
+                const resultData = await response.json();
+                document.getElementById('result').innerText = `The result is: ${resultData.result}`;
+                document.getElementById('error').innerText = ''; 
+            } catch (error) {
+                document.getElementById('error').innerText = `Error: ${error.message}`;
+                document.getElementById('result').innerText = '';
+            }
         }
     </script>
 
