@@ -1,4 +1,4 @@
-Welcome to the my simple calculator app!
+Welcome to my simple calculator app!
 
 Basic Operations:
 Add: Add two numbers together.
